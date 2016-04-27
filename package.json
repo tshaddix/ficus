@@ -1,11 +1,28 @@
 {
   "name": "boji",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "./node_modules/.bin/babel src --out-dir lib"
   },
-  "author": "",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tshaddix/boji.git"
+  },
+  "author": "Tyler Shaddix",
+  "bugs": {
+    "url": "https://github.com/tshaddix/boji/issues"
+  },
+  "homepage": "https://github.com/tshaddix/boji#readme",
+  "license": "MIT",
+  "dependencies": {
+    "joi": "^8.0.5",
+    "lodash": "^4.11.1"
+  },
+  "devDependencies": {
+    "babel": "^6.3.26",
+    "babel-cli": "^6.4.5",
+    "babel-preset-es2015": "^6.3.13"
+  }
 }
