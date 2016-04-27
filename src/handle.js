@@ -42,7 +42,7 @@ const handle = (opts) => {
   const result = Joi.validate(opts, optsSchema);
 
   if (result.error) {
-    throw error;
+    throw result.error;
   }
 
   const o = result.value;
