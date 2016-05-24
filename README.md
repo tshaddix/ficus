@@ -2,6 +2,10 @@
 
 An extremely simple set of utilities for building service-based APIs in ExpressJS.
 
+[![Build Status](https://travis-ci.org/tshaddix/ficus.svg?branch=master)](https://travis-ci.org/tshaddix/ficus)
+[![NPM Version][npm-image]][npm-url]
+[![NPM Downloads][downloads-image]][downloads-url]
+
 ## The Basics
 
 ### Install
@@ -206,3 +210,8 @@ app.use(function(err, req, res, next) {
 });
 
 ```
+
+[npm-image]: https://img.shields.io/npm/v/ficus.svg
+[npm-url]: https://npmjs.org/package/ficus
+[downloads-image]: https://img.shields.io/npm/dm/ficus.svg
+[downloads-url]: https://npmjs.org/package/ficus
