@@ -1,6 +1,6 @@
 {
-  "name": "boji",
-  "version": "0.1.1",
+  "name": "ficus",
+  "version": "0.0.2",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tshaddix/boji.git"
+    "url": "git+https://github.com/tshaddix/ficus.git"
   },
   "author": "Tyler Shaddix",
   "bugs": {
-    "url": "https://github.com/tshaddix/boji/issues"
+    "url": "https://github.com/tshaddix/ficus/issues"
   },
-  "homepage": "https://github.com/tshaddix/boji#readme",
+  "homepage": "https://github.com/tshaddix/ficus#readme",
   "license": "MIT",
   "dependencies": {
     "joi": "^8.0.5",
