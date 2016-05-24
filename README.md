@@ -38,7 +38,7 @@ The handle function's main purpose is to map a request object against a schema, 
 
 `@param opts {object}`
 - `reqSchema`: [Joi](https://github.com/hapijs/joi) schema representing the form of the request object
-- `resSchema`: [joi](https://github.com/hapijs/joi) schema representing the form of the response object
+- `resSchema`: [Joi](https://github.com/hapijs/joi) schema representing the form of the response object
 - `handler(reqData, ctx)`: Service handler
     - `reqData`: The request data validated and sanitized through `reqSchema`
     - `ctx`: Object of form `{req, res}` that allows access to original request values (if present)
@@ -119,11 +119,30 @@ app.get('/users/:query?', wrap(getUsers));
 
 There are some handy Http Errors available for you as part of Ficus. They provide quick and semantic ways to "error out" in your service handlers. It is also very easy to extend these errors to add your own. Take a look at the available errors and how to extend them [here](https://github.com/tshaddix/ficus/blob/master/src/errors.js).
 
+For example:
+
+```js
+import {
+  handle,
+  ForbiddenError
+} from 'ficus';
+
+handle({
+  reqSchema: Joi.any(),
+  resSchema: Joi.any(),
+  handler(reqData, ctx) {
+    if (!ctx.req.session.isAdmin) {
+      throw new ForbiddenError('You must be an admin to do that');
+    }
+  }
+})
+```
+
 ## Frequent Questions
 
 ### How do I get to session variables?
 
-Just user the context object (second argument of `handle()`):
+Use the context object (second argument of `handle()`):
 
 ```js
 handle({
@@ -137,7 +156,7 @@ handle({
 
 ### How do I change the response code from 200?
 
-Just access the response on the context object before returning:
+Access the response on the context object before returning:
 
 ```js
 handle({
@@ -154,7 +173,7 @@ handle({
 
 ### How do I make good use of the errors in Express?
 
-I use this simple formula in my express app:
+A simple formula for bootstrapping your Express app:
 
 ```js
 import {
