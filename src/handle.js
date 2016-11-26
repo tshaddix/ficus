@@ -29,7 +29,7 @@ const _promisedValidate = (msg, schema) => {
 
 const optsSchema = Joi.object().keys({
   reqSchema: Joi.object().required(),
-  resSchema: Joi.object().required(),
+  resSchema: Joi.object().optional(),
   handler: Joi.func().required()
 });
 
@@ -53,7 +53,11 @@ const handle = (opts) => {
         return o.handler(reqMsg, ctx);
       })
       .then((resMsg) => {
-        return _promisedValidate(resMsg, o.resSchema);
+        if (o.resSchema) {
+          return _promisedValidate(resMsg, o.resSchema);
+        } else {
+          return resMsg;
+        }
       });
   };
 };
